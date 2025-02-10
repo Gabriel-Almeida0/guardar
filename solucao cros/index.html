@@ -10,7 +10,6 @@
 
   <script>
     function fetchData() {
-      // Use a URL com HTTPS diretamente para evitar conversões desnecessárias
       const urlDestino = encodeURIComponent('https://worldtimeapi.org/api/timezone/Europe/London');
       
       fetch(`http://localhost:3000/proxy?url=${urlDestino}`)
