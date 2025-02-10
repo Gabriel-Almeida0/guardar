@@ -17,16 +17,13 @@ app.get('/proxy', async (req, res) => {
 
   try {
     const decodedUrl = decodeURIComponent(targetUrl);
-
-    // Agente HTTPS customizado para teste (desabilitando a verificação TLS)
     const agent = new https.Agent({
       keepAlive: true,
-      rejectUnauthorized: false, // Somente para teste!
+      rejectUnauthorized: false, // Somente para teste
     });
 
     const response = await fetch(decodedUrl, { agent });
 
-    // Define um content-type padrão se não estiver presente
     const contentType = response.headers.get('content-type') || 'application/json';
     res.set('Content-Type', contentType);
 
